@@ -13,7 +13,7 @@ import java.io.IOException;
 @Slf4j
 public class PdfExtractionService {
 
-    private static final int MAX_CHAR_LIMIT = 50000; // Limit to ~10,000 words to avoid LLM token overflow and long waits
+    private static final int MAX_CHAR_LIMIT = 150000; // Limit extension to accommodate larger context model
 
     public String extractText(MultipartFile file) throws IOException {
         log.info("Extracting text from PDF: {} (size: {} bytes)", file.getOriginalFilename(), file.getSize());

@@ -90,9 +90,9 @@ public class DocumentController {
 
         try {
             log.info("Generating practice quiz on demand for document: {}", document.getTitle());
-            String textForQuiz = document.getExtractedText();
+            String textForQuiz = document.getSummary();
             if (textForQuiz == null || textForQuiz.trim().isEmpty()) {
-                textForQuiz = document.getSummary();
+                textForQuiz = document.getExtractedText();
             }
             List<QuizQuestion> questions = groqService.generateQuiz(document.getTitle(), textForQuiz);
 
